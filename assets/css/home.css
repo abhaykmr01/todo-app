@@ -1,0 +1,105 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: grey;
+}
+
+body,
+html {
+    font-size: 100%;
+    font-family: sans-serif;
+}
+
+body {
+    /* display: flex!important;
+    justify-content: center!important;
+    align-items: center!important; */
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+}
+
+.todo-container {
+    padding: 0.5rem!important;
+    /* margin: 0.5rem!important; */
+    /* width: 70vw; */
+    /* display: flex!important;
+    justify-content: center!important;
+    align-items: center!important; */
+    /* border: 2px solid red;  */
+}
+
+.form-control,
+.form-control:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: inherit !important;
+    width: auto !important;
+}
+
+.toggle-color {
+    background-color: rgb(221, 216, 216)!important;
+}
+
+.half {
+    width: 50%!important;
+}
+
+.list-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+input[type="checkbox"] {
+    accent-color: rgb(23, 150, 12);
+}
+
+button {
+    margin: 0.5rem !important;
+    /* color: white !important;  */
+}
+
+.fa-angle-down {
+    /* top: 0 !important; */
+}
+
+.arrow-down {
+    top: 50% !important;
+    left: 50% !important;
+}
+
+.list-category {
+    height: 2rem !important;
+    width: 5rem !important;
+    background-color: green;
+    border-radius: 20px;
+    color: white !important;
+    text-align: center !important;
+    padding: 0.5em !important;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+
+@media (max-width: 575.98px) {
+    .todo-container {
+        /* width: 100vw!important; */
+        position: absolute !important;
+        top: 0 !important;
+    }
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    ...
+}

@@ -1,0 +1,13 @@
+module.exports.home = function(req, res) {
+    return res.render("home", {
+        title: "home"
+    })
+}
+
+module.exports.addTodo = function(req, res) {
+    return res.end("<h1>ADD</h1>")
+}
+
+module.exports.deleteTodo = function(req, res) {
+    return res.end("<h1>Delete</h1>")
+}
