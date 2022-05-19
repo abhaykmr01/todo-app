@@ -20,26 +20,27 @@
 
         <div class="todo-container col-12 col-md-8 ml-auto mr-auto">
             <table class="table table-bordered">
-                <p class="app-title">TODO App</p>
+                <p class="app-title text-center font-weight-bold">TODO APP</p>
 
                 <tbody>
-                    <div class="get-input-container">
-                        <form id="newTodoList" action="/add_todo" method="post"></form>
-                        <tr>
-                            <td colspan="2">
-                                <div class="description">
-                                    <label for="description-input">Description</label>
-                                    <input class="form-control input-styles remove-defaults" type="text" id="description-input" name="description" placeholder="What do you need to do?">
-                                </div>
-                            </td>
-                        </tr>
+                    <form id="newTodoList" action="/add_todo" method="post">
+                        <div class="get-input-container">
 
-                        <div class="category-n-date">
                             <tr>
-                                <td>
-                                    <div class="category form-group position-relative">
-                                        <label for="category-select">Category </label>
-                                        <select class="form-control " id="category-select" name="category">
+                                <td colspan="2">
+                                    <div class="description">
+                                        <label for="description-input">DESCRIPTION</label>
+                                        <input class="form-control" type="text" id="description-input" name="description" placeholder="What do you need to do?" required>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <div class="category-n-date">
+                                <tr>
+                                    <td>
+                                        <div class="category form-group position-relative">
+                                            <label for="category-select">CATEGORY </label>
+                                            <select class="form-control " id="category-select" name="category" required>
                                         <option selected>Choose a category</option>    
                                             <option value="Peraonal">Personal</option>
                                             <option value="Work">Work</option>
@@ -47,29 +48,30 @@
                                             <option value="Cleaner">Cleaner</option>
                                             <option value="Others">Others</option>
                                         </select>
-                                        <div class="position-absolute text-white arrow-down">
-                                            <i class="fa-solid fa-angle-down"></i></div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="due-date form-group">
-                                        <label for="due-date-input">Due Date</label>
-                                        <input class="form-control remove-defaults" type="date" name="due-date" id="due-date-input">
-                                    </div>
-                                </td>
-                            </tr>
+                                            <div class="position-absolute text-white arrow-down">
+                                                <i class="fa-solid fa-angle-down"></i></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="due-date form-group">
+                                            <label for="due-date-input">DUE DATE</label>
+                                            <input class="form-control" type="date" name="dueDate" id="due-date-input" required>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </div>
+
 
                         </div>
-
-                        </form>
+                        <tr>
+                            <td colspan="2">
+                                <div class="buttons-container d-flex justify-content-center align-items-center text-white">
+                                    <button type="submit" class="btn btn-success"><i class="fa-solid fa-plus text-white"></i>&nbspADD TASK</button>
+                    </form>
+                    <button class="btn btn-danger"><i class="fa-solid fa-trash text-white"></i>&nbspDELETE TASK</button>
                     </div>
-                    <tr>
-                        <td colspan="2">
-                            <div class="buttons-container d-flex justify-content-center align-items-center text-white">
-                                <button class="btn btn-success"><i class="fa-solid fa-plus text-white"></i>&nbspADD TASK</button>
-                                <button class="btn btn-danger"><i class="fa-solid fa-trash text-white"></i>&nbspDELETE TASK</button>
-                            </div>
-                        </td>
+                    </td>
                     </tr>
                     <div class="display-container">
                         <tr>
@@ -108,10 +110,10 @@
 
 
 
-                                                <%=console.log("helllo") %>
 
-                                                    go to school
-                                                    <div class="list-due-date "> <i class="fa-solid fa-calendar-days"></i>&nbsp 12/5</div>
+
+                                                go to school
+                                                <div class="list-due-date "> <i class="fa-solid fa-calendar-days"></i>&nbsp 12/5</div>
                                             </div>
 
                                         </div>

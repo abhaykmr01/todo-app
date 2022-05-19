@@ -4,10 +4,23 @@ module.exports.home = function(req, res) {
     })
 }
 
-module.exports.addTodo = function(req, res) {
-    return res.end("<h1>ADD</h1>")
-}
+// module.exports.addTodo = function(req, res) {
+//     TodoList.create({
+//         description: req.body.description,
+//         category: req.body.category,
+//         dueDate: req.body.dueDate
+//     }, function(error, newTodo) {
+//         if (error) {
+//             console.log("Error in creating task");
+//             return;
 
-module.exports.deleteTodo = function(req, res) {
-    return res.end("<h1>Delete</h1>")
-}
+//         }
+//         console.log("******", newTodo);
+//         return res.redirect('back')
+
+//     })
+// }
+
+// module.exports.deleteTodo = function(req, res) {
+//     return res.end("<h1>Delete</h1>")
+// }
