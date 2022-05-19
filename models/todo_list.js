@@ -14,6 +14,10 @@ const todoListSchema = new mongoose.Schema({
             type: 'string',
             required: true,
 
+        },
+        active: {
+            type: 'boolean',
+            required: true
         }
 
 

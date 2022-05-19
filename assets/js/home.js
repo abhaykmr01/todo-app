@@ -30,17 +30,29 @@ const checkbox = document.querySelectorAll('.checkbox');
 
 
 
-// for (let elem of checkbox) {
+for (let elem of checkbox) {
 
-//     elem.addEventListener("click", (event) => {
-//         console.log("Checkbox")
-//         if (elem.checked == true) {
-//             console.log("checked")
+    elem.addEventListener("click", (event) => {
+        console.log("Checkbox")
+        location.href = `/update/?id=${elem.value}`
+        if (elem.checked == true) {
+            console.log(elem.value)
 
-//         } else {
-//             console.log("unchecked")
-//         }
+            console.log("checked")
 
-//     });
+        } else {
+            console.log("unchecked")
+        }
 
-// }
+    });
+
+}
+// $('.delete').click(function(){
+
+//    for(let task of checkbox ){
+//     (elem.checked == true)
+
+//    }
+
+
+// })
