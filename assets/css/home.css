@@ -22,7 +22,7 @@ body {
     height: 100%;
     display: flex!important;
     justify-content: center!important;
-    align-items: center!important;
+    /* align-items: center!important; */
 }
 
 .todo-container {
@@ -87,7 +87,7 @@ button {
 .list-category {
     height: 2rem !important;
     width: 5rem !important;
-    background-color: green;
+    /* background-color: green; */
     border-radius: 20px;
     color: white !important;
     text-align: center !important;

@@ -30,7 +30,7 @@
                             <tr>
                                 <td colspan="2">
                                     <div class="description">
-                                        <label for="description-input">DESCRIPTION</label>
+                                        <label for="description-input" class="">DESCRIPTION</label>
                                         <input class="form-control" type="text" id="description-input" name="description" placeholder="What do you need to do?" required>
                                     </div>
                                 </td>
@@ -43,7 +43,7 @@
                                             <label for="category-select">CATEGORY </label>
                                             <select class="form-control " id="category-select" name="category" required>
                                         <option selected>Choose a category</option>    
-                                            <option value="Peraonal">Personal</option>
+                                            <option value="Personal">Personal</option>
                                             <option value="Work">Work</option>
                                             <option value="School">School</option>
                                             <option value="Cleaner">Cleaner</option>
@@ -68,9 +68,9 @@
                         <tr>
                             <td colspan="2">
                                 <div class="buttons-container d-flex justify-content-center align-items-center text-white">
-                                    <button type="submit" class="btn btn-success"><i class="fa-solid fa-plus text-white"></i>&nbspADD TASK</button>
+                                    <button type="submit" class="btn btn-success" id="addTask"><i class="fa-solid fa-plus text-white"></i>&nbspADD TASK</button>
                     </form>
-                    <form id="deleteTodoList" action="/delete_todo/" method="get">
+                    <form id="deleteTodoList" action="" method="get">
                         <button type="submit" class="btn btn-danger delete"><i class="fa-solid fa-trash text-white"></i>&nbspDELETE TASK</button>
                         </div>
                         </td>
@@ -85,25 +85,25 @@
 
 
                                                 <% if(i.active == false){%>
-                                                    <span class=" checkbox-container " style="width:10px; margin-right:1rem; flex: none ">
-                                                    <input type="checkbox" name="id" value="<%=i._id%>" class="checkbox " checked="checked" />
+                                                    <span class=" checkbox-container" style="width:10px; margin-right:1rem; flex: none ">
+                                                    <input type="checkbox" name="id" value="<%=i._id%>" class="checkbox" checked="checked" />
                                                 </span>
 
-                                                    <div class="list-description ">
-                                                        <span class="desc "><s><%=i.description %></s></span>
-                                                        <div class="list-due-date "><s> <i class="fa-solid fa-calendar-days "></i>&nbsp
-                                                       <%=i.dueDate %></s>
+                                                    <div class="list-description">
+                                                        <span class="desc text-decoration-line-through"><%=i.description %></span>
+                                                        <div class="list-due-date text-decoration-line-through"><i class="fa-solid fa-calendar-days "></i>&nbsp
+                                                            <%=i.dueDate %>
                                                         </div>
                                                     </div>
 
                                                     <% }else{ %>
-                                                        <span class=" checkbox-container " style="width:10px; margin-right:1rem; flex: none ">
-                                                        <input type="checkbox" name="id" value="<%=i._id%>" class="checkbox " style="color:green ">
+                                                        <span class=" checkbox-container" style="width:10px; margin-right:1rem; flex: none ">
+                                                        <input type="checkbox" name="id" value="<%=i._id%>" class="checkbox" style="color:green ">
                                                     </span>
 
-                                                        <div class="list-description ">
-                                                            <span class="desc "><%=i.description %></span>
-                                                            <div class="list-due-date "><i class="fa-solid fa-calendar-days "></i>&nbsp
+                                                        <div class="list-description">
+                                                            <span class="desc"><%=i.description %></span>
+                                                            <div class="list-due-date"><i class="fa-solid fa-calendar-days "></i>&nbsp
                                                                 <%=i.dueDate %>
                                                             </div>
                                                         </div>
@@ -113,7 +113,7 @@
 
 
                                             </div>
-                                            <div class="list-category " style="margin-right: 1rem; ">
+                                            <div class="list-category" style="margin-right: 1rem; ">
                                                 <%=i.category %>
                                             </div>
                                         </div>
