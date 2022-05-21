@@ -24,7 +24,7 @@
                 <p class="app-title text-center font-weight-bold">TODO APP</p>
 
                 <tbody>
-                    <form id="newTodoList" action="/add_todo" method="post">
+                    <form id="newTodoList" action="/add_todo/" method="post">
                         <div class="get-input-container">
 
                             <tr>
@@ -41,8 +41,8 @@
                                     <td>
                                         <div class="category form-group position-relative">
                                             <label for="category-select">CATEGORY </label>
-                                            <select class="form-control " id="category-select" name="category" required>
-                                        <option selected>Choose a category</option>    
+                                            <select class="form-control" id="category-select" name="category" required>
+                                        <option value="blank" selected>Choose a category</option>    
                                             <option value="Personal">Personal</option>
                                             <option value="Work">Work</option>
                                             <option value="School">School</option>
@@ -56,7 +56,7 @@
                                     <td>
                                         <div class="due-date form-group">
                                             <label for="due-date-input">DUE DATE</label>
-                                            <input class="form-control" type="date" name="dueDate" id="due-date-input" required>
+                                            <input class="form-control" type="date" name="dueDate" id="due-date-input">
                                         </div>
                                     </td>
                                 </tr>

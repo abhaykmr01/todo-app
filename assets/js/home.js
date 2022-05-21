@@ -2,14 +2,16 @@ const inputElem = document.querySelectorAll('.form-control');
 let timout;
 let clickedCheckbox = [];
 let checkboxvalue = {};
-let getColor=new Map([
-    ["Personal","#1c2a43"],
-    ["Work","#d35400"],
-    ["School","#9400d3"],
-    ["Cleaner","#28a228"],
-    ["Others"," #af851a"]
+// assigning each category their own background color
+let getColor = new Map([
+    ["Personal", "#1c2a43"],
+    ["Work", "#d35400"],
+    ["School", "#9400d3"],
+    ["Cleaner", "#28a228"],
+    ["Others", " #af851a"]
 
 ]);
+
 window.onload = function() {
     $('.checkbox').each(function() {
         const checkboxId = this.value;
@@ -18,13 +20,16 @@ window.onload = function() {
 
     })
 
-    $('.list-category').each(function(){
-        console.log(this.innerText);
-        const elem=this;
-        elem.style.backgroundColor=getColor.get(this.innerText);
+    //adding the background color of categry div in display section 
+
+    $('.list-category').each(function() {
+
+        const elem = this;
+        elem.style.backgroundColor = getColor.get(this.innerText);
     })
 
 };
+// changing the background color input when they are in focus
 $(".form-control").focusin(function() {
     const tdElem = this.closest('td')
     tdElem.classList.toggle('toggle-color')
@@ -53,15 +58,46 @@ var clickCount = 0;
 
 // }
 
+function inputtoString(input) {
+    return input.replace(/</g, "&lt;").replace(/>/g, "&gt;")
+}
+
 $("#addTask").click(function(ev) {
     ev.preventDefault();
-    var form = $("#newTodoList");
-    var url = form.attr('action');
+    // var form = $("#newTodoList");
+    // var url = form.attr('action');
+    let description = $("#description-input").val()
+        // removing any < or > for preventing possible code injection
+    description = inputtoString(description);
+    let category = $("#category-select").val()
+    if (category == 'blank') {
+        return;
+    }
+    let dueDate = $("#due-date-input").val()
+
+
+    if (dueDate !== "") {
+
+        const localDate = new Date(dueDate);
+        //getting date accordingn to requirement of project
+        dueDate = localDate.toDateString().substring(4);
+
+
+    }
+
+    // let query=`description=${description}`;
+    // creating object of all the paramaeters to make a query string
+    // let query = new Object()
+    // query.description = description;
+    // query.category = category;
+    // query.dueDate = dueDate;
+    // // creating query like string with param method of jquery
+    // let queryParam = $.param(query)
+    let queryString = `?description=${description}&category=${category}&dueDate=${dueDate}`;
 
     $.ajax({
+        url: `/add_todo/${queryString}`,
         type: "POST",
-        url: url,
-        data: form.serialize(),
         success: function(data) {
 
             // Ajax call completed successfully
@@ -81,7 +117,7 @@ $("#addTask").click(function(ev) {
                                     </div>
                                 </div>
                         </div>
-                    <div class="list-category " style="margin-right: 1rem; ">
+                    <div class="list-category " style="margin-right: 1rem; background-color: ${getColor.get(data.category)} ">
                         ${data.category}
                     </div>
                 </div>
@@ -91,6 +127,7 @@ $("#addTask").click(function(ev) {
             tableBody.append(markup);
             // add this new task's checkbox to the  checkboxvalue[checkboxId]
             checkboxvalue[data.id] = false;
+            // add color to this new div
 
         },
         error: function(data) {

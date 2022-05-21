@@ -1,26 +1,178 @@
+const express = require('express');
+const app = express();
+
+// setting up body-parser for getting data from browser
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
+
+const db = require("../config/mongoose");
+
+// // db contact monipulation through Contact
+const TodoList = require('../models/todo_list')
+
 module.exports.home = function(req, res) {
-    return res.render("home", {
-        title: "home"
+    TodoList.find({}, function(err, todo) {
+        if (err) {
+            console.log("Error in fetching from db");
+            return;
+        }
+        return res.render('home', {
+            title: "TODO APP",
+            todo_list: todo
+
+        });
     })
 }
 
-// module.exports.addTodo = function(req, res) {
-//     TodoList.create({
-//         description: req.body.description,
-//         category: req.body.category,
-//         dueDate: req.body.dueDate
-//     }, function(error, newTodo) {
-//         if (error) {
-//             console.log("Error in creating task");
-//             return;
+module.exports.addTodo = function(req, res) {
+    // create task for todo_list
+    console.log("trying to create")
+    console.log(req.query)
+    if (req.query.dueDate == "") {
 
-//         }
-//         console.log("******", newTodo);
-//         return res.redirect('back')
+        req.query.dueDate = "NO DEADLINE";
+    }
 
-//     })
-// }
+    TodoList.create({
+        description: req.query.description,
+        category: req.query.category,
+        dueDate: req.query.dueDate,
+        active: "true"
+    }, function(error, newTodo) {
+        if (error) {
+            console.log("Error in creating task");
+            return;
 
-// module.exports.deleteTodo = function(req, res) {
-//     return res.end("<h1>Delete</h1>")
-// }
+        }
+        console.log("******", newTodo);
+        // return res.redirect('back')
+        res.json({
+            id: newTodo.id,
+            description: newTodo.description,
+            dueDate: newTodo.dueDate,
+            category: newTodo.category
+        })
+
+    })
+
+}
+
+module.exports.updateTodo = function(req, res) {
+
+    // get the query from url
+    let id = req.query.id;
+    // if (!req.query.id) {
+    //     return res.redirect("back");
+
+    // }
+    if (id == undefined) {
+        return res.end();
+
+    }
+
+    // for deleting single task
+    if ((typeof id) == "string") {
+        TodoList.findById(id, function(err, task) {
+            if (err) {
+                consle.log("not found")
+                return re.end();
+            }
+
+            if (task.active == true) {
+                task.active = false;
+
+            } else {
+                task.active = true;
+
+            }
+
+            task.save(function(err) {
+                // if (err) return handleError(err);
+                if (err) {
+                    console.log("not updated")
+
+                }
+                // return res.redirect("back"); // Or redirect, basically finish request.
+                console.log("db updated")
+
+            });
+        });
+    }
+
+    // for deleting multiple task
+    if ((typeof id) == "object") {
+        for (let i of id) {
+
+
+            TodoList.findById(i, function(err, task) {
+                if (err) return handleError(err);
+
+                if (task.active == true) {
+                    task.active = false;
+
+                } else {
+                    task.active = true;
+
+                }
+
+                task.save(function(err) {
+                    // if (err) return handleError(err);
+                    if (err) {
+                        console.log("not updated")
+
+                    }
+
+                    console.log("db updated")
+
+
+                });
+            });
+        }
+
+    }
+    return res.end();
+
+}
+module.exports.deleteTodo = function(req, res) {
+    // get the query from url
+    let id = req.query.id;
+    // if (!req.query.id) {
+    //     return res.redirect("back");
+
+    // }
+    if (id == undefined) {
+        return res.end();
+
+    }
+
+    // for deleting single task
+    if ((typeof id) == "string") {
+        TodoList.findByIdAndDelete(id, function(err) {
+            if (err) {
+                console.log("error deleting");
+                return res.end();
+            }
+            console.log("deleted")
+
+        })
+    }
+
+    // for deleting multiple task
+    if ((typeof id) == "object") {
+        for (let i of id) {
+
+
+            TodoList.findByIdAndDelete(i, function(err) {
+                if (err) {
+                    console.log("error deleting");
+                    return re.end();
+                }
+                console.log("deleted")
+
+            })
+        }
+
+    }
+    return res.end();
+
+}
