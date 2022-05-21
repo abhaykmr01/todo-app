@@ -64,13 +64,22 @@ function inputtoString(input) {
 
 $("#addTask").click(function(ev) {
     ev.preventDefault();
+
     // var form = $("#newTodoList");
     // var url = form.attr('action');
     let description = $("#description-input").val()
         // removing any < or > for preventing possible code injection
     description = inputtoString(description);
+    if (description.length == 0) {
+        console.log("add description");
+        // highlights the input text to write
+        $("#description-input").focus()
+        return;
+    }
     let category = $("#category-select").val()
     if (category == 'blank') {
+        // focus on category field
+        $("#category-select").focus();
         return;
     }
     let dueDate = $("#due-date-input").val()
