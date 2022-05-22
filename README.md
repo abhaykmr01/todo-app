@@ -14,7 +14,7 @@ Node.js,Javascript, HTML, CSS...
 
 ## Link
 
-[Live](https://abhaykmr-todo-app.herokuapp.com//)
+[Live](https://abhaykmr-todo-app.herokuapp.com/)
 
 
 
