@@ -39,6 +39,13 @@ $(".form-control").focusout(function() {
     tdElem.classList.toggle('toggle-color')
 })
 
+// $(".take-input-container").click(function() {
+//     const elem = this;
+//     const inputElem = $(elem).find('.form-control');
+//     inputElem.focus();
+
+// })
+
 var clickCount = 0;
 // for (elem of inputElem) {
 

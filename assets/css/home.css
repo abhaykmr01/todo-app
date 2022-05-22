@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    color: grey;
+    color: rgb(107, 105, 105);
 }
 
 body,
@@ -46,6 +46,11 @@ body {
     box-shadow: none !important;
     background-color: inherit !important;
     width: auto !important;
+    color: grey !important;
+}
+
+label {
+    font-weight: 600!important;
 }
 
 .toggle-color {
@@ -73,11 +78,6 @@ button {
 
 .fa-angle-down {
     /* top: 0 !important; */
-}
-
-.arrow-down {
-    top: 50% !important;
-    right: 20% !important;
 }
 
 .desc {

@@ -29,7 +29,7 @@
 
                             <tr>
                                 <td colspan="2">
-                                    <div class="description">
+                                    <div class="description form-group take-input-container">
                                         <label for="description-input" class="">DESCRIPTION</label>
                                         <input class="form-control" type="text" id="description-input" name="description" placeholder="What do you need to do?" required>
                                     </div>
@@ -39,9 +39,9 @@
                             <div class="category-n-date">
                                 <tr>
                                     <td>
-                                        <div class="category form-group position-relative">
+                                        <div class="category take-input-container form-group position-relative">
                                             <label for="category-select">CATEGORY </label>
-                                            <select class="form-control" id="category-select" name="category" required>
+                                            <select class="form-control form-select" id="category-select" name="category" required>
                                         <option value="blank" selected>Choose a category</option>    
                                             <option value="Personal">Personal</option>
                                             <option value="Work">Work</option>
@@ -49,26 +49,23 @@
                                             <option value="Cleaner">Cleaner</option>
                                             <option value="Others">Others</option>
                                         </select>
-                                            <div class="position-absolute text-white arrow-down">
-                                                <i class="fa-solid fa-angle-down"></i></div>
-                                        </div>
                                     </td>
                                     <td>
-                                        <div class="due-date form-group">
+                                        <div class="due-date form-group take-input-container">
                                             <label for="due-date-input">DUE DATE</label>
                                             <input class="form-control" type="date" name="dueDate" id="due-date-input">
                                         </div>
                                     </td>
                                 </tr>
 
+                                </div>
+
+
                             </div>
-
-
-                        </div>
-                        <tr>
-                            <td colspan="2">
-                                <div class="buttons-container d-flex justify-content-center align-items-center text-white">
-                                    <button type="submit" class="btn btn-success" id="addTask"><i class="fa-solid fa-plus text-white"></i>&nbspADD TASK</button>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="buttons-container d-flex justify-content-center align-items-center text-white">
+                                        <button type="submit" class="btn btn-success" id="addTask"><i class="fa-solid fa-plus text-white"></i>&nbspADD TASK</button>
                     </form>
                     <form id="deleteTodoList" action="" method="get">
                         <button type="submit" class="btn btn-danger delete"><i class="fa-solid fa-trash text-white"></i>&nbspDELETE TASK</button>
@@ -127,10 +124,10 @@
                 </tbody>
             </table>
 
+            </div>
         </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js " integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin=" anonymous "></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js " integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin=" anonymous "></script> -->
 </body>
 
 </html>
